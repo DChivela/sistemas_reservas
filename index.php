@@ -16,6 +16,7 @@
         <nav>
             <?php if (isset($_SESSION['user'])): ?>
                 <a href="minhas-reservas.php">Minhas Reservas</a>
+                <a href="admin/users/create.php">Painel</a>
                 <a href="logout.php">Logout</a>
             <?php else: ?>
                 <a href="login.php">Login</a>

@@ -1,10 +1,12 @@
 <?php
+// session_start();
+// require '../../helpers/auth.php';
+// requireLogin();
 $title = 'Novo Utilizador';
 ob_start();
 ?>
 <div class="form-card">
     <h2>Novo Utilizador</h2>
-
     <form method="post" action="store.php">
         <div class="form-group">
             <label>Nome</label>

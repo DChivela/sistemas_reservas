@@ -5,7 +5,7 @@ function auth() {
 }
 
 function isAdmin(): bool {
-    return isset($_SESSION['user']) && $_SESSION['user']['tipo'] === 'admin';
+    return isset($_SESSION['user']) && $_SESSION['user']['Tipo'] === 'admin';
 }
 
 function requireLogin() {

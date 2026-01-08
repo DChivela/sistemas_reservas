@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../app/helpers/auth.php';
+require '../../helpers/auth.php';
 requireAdmin();
 ?>
 <!DOCTYPE html>
@@ -22,14 +22,14 @@ requireAdmin();
         <a href="/admin/reservas/index.php">Reservas</a>
         <a href="/admin/estabelecimentos/index.php">Estabelecimentos</a>
         <a href="/admin/users/index.php">Utilizadores</a>
-        <a href="/public/logout.php">Logout</a>
+        <a href="../../logout.php">Logout</a>
     </aside>
 
     <main class="admin-content">
         <div class="admin-header">
             <h1><?= $title ?? '' ?></h1>
             <div class="admin-user">
-                <?= $_SESSION['user']['nome'] ?>
+                <?= $_SESSION['user']['Nome'] ?>
             </div>
         </div>
 

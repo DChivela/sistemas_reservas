@@ -27,7 +27,7 @@ class Estabelecimento {
     }
 
     public function find(int $id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM estabelecimentos WHERE id = ?");
+        $stmt = $this->pdo->prepare("SELECT * FROM estabelecimentos WHERE ID = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }

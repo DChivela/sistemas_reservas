@@ -1,9 +1,7 @@
 <?php
-session_start();
 
 $pdo = require '../../config/database.php';
 require '../../app/models/User.php';
-
 $model = new User($pdo);
 $users = $model->all();
 ?>
@@ -30,3 +28,7 @@ $users = $model->all();
 </tr>
 <?php endforeach; ?>
 </table>
+
+<?php
+$content = ob_get_clean();
+require '../layout.php';

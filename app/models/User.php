@@ -14,10 +14,10 @@ class User {
         ");
 
         return $stmt->execute([
-            $data['nome'],
-            $data['email'],
-            password_hash($data['password'], PASSWORD_DEFAULT),
-            $data['tipo']
+            $data['Nome'],
+            $data['Email'],
+            password_hash($data['Password'], PASSWORD_DEFAULT),
+            $data['Tipo']
         ]);
     }
 

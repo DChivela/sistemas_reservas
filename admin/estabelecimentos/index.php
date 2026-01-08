@@ -19,13 +19,18 @@ $estabelecimentos = $model->all();
 
 <?php foreach ($estabelecimentos as $e): ?>
 <tr>
-    <td><?= htmlspecialchars($e['nome']) ?></td>
-    <td><?= $e['tipo'] ?></td>
-    <td><?= $e['email'] ?></td>
+    <td><?= htmlspecialchars($e['Nome']) ?></td>
+    <td><?= $e['Tipo'] ?></td>
+    <td><?= $e['Email'] ?></td>
     <td>
-        <a href="edit.php?id=<?= $e['id'] ?>">Editar</a>
-        <a href="delete.php?id=<?= $e['id'] ?>" onclick="return confirm('Eliminar?')">Excluir</a>
+        <a href="edit.php?ID=<?= $e['ID'] ?>">Editar</a>
+        <a href="delete.php?ID=<?= $e['ID'] ?>" onclick="return confirm('Eliminar?')">Excluir</a>
     </td>
 </tr>
 <?php endforeach; ?>
 </table>
+
+<?php
+$title = 'Estabelecimentos';
+$content = ob_get_clean();
+require '../layout.php';

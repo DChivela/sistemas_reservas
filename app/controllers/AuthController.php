@@ -22,10 +22,10 @@ class AuthController {
         session_regenerate_id(true);
 
         $_SESSION['user'] = [
-            'id'    => $user['id'],
-            'nome'  => $user['nome'],
-            'email' => $user['email'],
-            'tipo'  => $user['tipo']
+            'ID'    => $user['ID'],
+            'Nome'  => $user['Nome'],
+            'Email' => $user['Email'],
+            'Tipo'  => $user['Tipo']
         ];
 
         return true;
