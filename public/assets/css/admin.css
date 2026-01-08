@@ -1,0 +1,54 @@
+.admin-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+    background: #f4f6f8;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 1.5rem 1rem;
+}
+
+.admin-sidebar h2 {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.admin-sidebar a {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    color: #d1d5db;
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar a.active {
+    background: #1f2937;
+    color: #fff;
+}
+
+/* CONTENT */
+.admin-content {
+    padding: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+    font-size: 1.4rem;
+}
+
+.admin-user {
+    font-size: 0.9rem;
+    color: #4b5563;
+}

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $pdo = require '../../config/database.php';
 require '../../app/models/User.php';
 

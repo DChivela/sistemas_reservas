@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/Reserva.php';
-require_once __DIR__ . '/../helpers/utils.php';
+require_once __DIR__ . '/../../helpers/utils.php';
 
 class ReservaController {
 
@@ -13,15 +13,15 @@ class ReservaController {
         $this->reserva = new Reserva($pdo);
     }
 
-    public function store(array $request) {
+    public function store(array $request, int $userId) {
         $this->pdo->beginTransaction();
 
         try {
             $codigo = gerarCodigoReserva($this->pdo);
 
-            $id = $this->reserva->create([
+            $this->reserva->create([
                 'codigo_reserva'      => $codigo,
-                'user_id'             => $request['user_id'],
+                'user_id'             => $userId, // vem da sessão
                 'estabelecimento_id'  => $request['estabelecimento_id'],
                 'data_reserva'        => $request['data_reserva'],
                 'hora_inicio'         => $request['hora_inicio'],
@@ -37,7 +37,15 @@ class ReservaController {
         }
     }
 
-    public function show(string $codigo) {
-        return $this->reserva->findByCodigo($codigo);
+    public function minhasReservas(int $userId): array {
+        $stmt = $this->pdo->prepare("
+            SELECT r.*, e.nome AS estabelecimento
+            FROM reservas r
+            JOIN estabelecimentos e ON e.id = r.estabelecimento_id
+            WHERE r.user_id = ?
+            ORDER BY r.created_at DESC
+        ");
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll();
     }
 }

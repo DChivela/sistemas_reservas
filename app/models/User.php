@@ -9,7 +9,7 @@ class User {
 
     public function create(array $data): bool {
         $stmt = $this->pdo->prepare("
-            INSERT INTO users (nome, email, password, tipo)
+            INSERT INTO utilizadores (nome, email, password, tipo)
             VALUES (?, ?, ?, ?)
         ");
 
@@ -22,7 +22,7 @@ class User {
     }
 
     public function findByEmail(string $email) {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt = $this->pdo->prepare("SELECT * FROM utilizadores WHERE Email = ?");
         $stmt->execute([$email]);
         return $stmt->fetch();
     }
@@ -30,12 +30,12 @@ class User {
     public function all(): array {
         return $this->pdo->query("
             SELECT id, nome, email, tipo, created_at 
-            FROM users ORDER BY nome
+            FROM utilizadores ORDER BY nome
         ")->fetchAll();
     }
 
     public function delete(int $id): bool {
-        $stmt = $this->pdo->prepare("DELETE FROM users WHERE id = ?");
+        $stmt = $this->pdo->prepare("DELETE FROM utilizadores WHERE id = ?");
         return $stmt->execute([$id]);
     }
 }
